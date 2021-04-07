@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 
 export default class SignUp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: 1
+        };
+      }
+
+      
+    handleProfile(){
+        window.location.href = "/skills"
+    }
     render() {
         return (
             <div>
@@ -17,7 +28,7 @@ export default class SignUp extends Component {
                 </div>
 
 
-                <button type="submit" className="btn btn-primary btn-block">Save</button>
+                <button type="submit" className="btn btn-primary btn-block" onClick={() => this.handleProfile()}>Next</button>
           
             </div>
         );

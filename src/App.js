@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./Screen/Login";
 import SignUp from "./Screen/Signup";
+import AddProfile from "./Screen/AddProfile";
+import Skills from "./Screen/Skills";
+import Profile from "./Screen/Profile";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
             <Route exact path='/' component={Login} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
+            <Route path="/add-profile" component={AddProfile} />
+            <Route path="/skills" component={Skills} />
+            <Route path="/profile" component={Profile} />
           </Switch>
         </div>
       </div>
