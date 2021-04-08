@@ -106,3 +106,15 @@ body{
 .shadow-none {
   box-shadow: none!important;
 }
+
+.err-msg {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+.success-msg {
+  color: green;
+  text-align: center;
+  font-size: 16px;
+}
