@@ -15,10 +15,6 @@ class AddProfile extends Component {
         };
     }
 
-    componentDidMount() {
-        console.log("user", this.props.user);
-    }
-
     async handleProfile() {
         const data = {
             firstName: this.state.firstName,
@@ -32,10 +28,8 @@ class AddProfile extends Component {
             if (this.state.lastName) {
                 try {
                     const profile = await api.addProfile(data, config)
-                    console.log("profile",profile);
                     window.location.href= "/skills"   
                 } catch (e) {
-                    console.log(e.response);
                     if (e.response.data.statusCode === 400) {
                         this.setState({ errorMsg: e.response.data.message[0], loading: false })
                     } else if (e.response.data.statusCode === 409) {

@@ -12,37 +12,14 @@ export default class AuthRedirect extends React.Component {
     this.state = {};
   }
   async componentWillMount() {
-    console.log("a111111111111111111111111111sd",this.props);
 
-    if (this.isEmpty(this.props.authEd)) {
-      window.location = '/'
+    if (!this.props.authEd) {
+      window.location = '/sign-in'
     }
   }
 
-  isEmpty(obj) {
-    for(var prop in obj) {
-      if(obj.hasOwnProperty(prop)) {
-        return false;
-      }
-    }
-  
-    return JSON.stringify(obj) === JSON.stringify({});
-  }
 
   render() {
     return <div></div>;
   }
 }
-
-
-// const mapStateToProps = state => ({ user: state.getUser.user });
-// const mapDispatchToProps = (dispatch, ownProps) =>
-//   bindActionCreators(                                     
-//     {
-//       authModalAsync,
-//       historyAsync
-//     },
-//     dispatch
-//   );
-
-// export default connect(mapStateToProps, mapDispatchToProps)(AuthRedirect);

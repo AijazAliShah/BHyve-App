@@ -10,6 +10,7 @@ import Skills from "./Screen/Skills";
 import Profile from "./Screen/Profile";
 import userActions from './Store/actions/userActions';
 import { connect } from 'react-redux';
+import PrivateRoute from "./services/PrivateRoute";
 
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
         <div className="App">
           <nav className="navbar navbar-expand-lg navbar-light fixed-top">
             <div className="container">
-              <Link className="navbar-brand" to={"/sign-in"}>BHyve App </Link>
+              <Link className="navbar-brand">BHyve App </Link>
               <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                 {!this.props.user ? (
                   <ul className="navbar-nav ml-auto">
@@ -55,9 +56,24 @@ class App extends Component {
                 <Route exact path='/' component={Login} />
                 <Route path="/sign-in" component={Login} />
                 <Route path="/sign-up" component={SignUp} />
-                <Route path="/add-profile" component={AddProfile} />
-                <Route path="/skills" component={Skills} />
-                <Route path="/profile" component={Profile} />
+                <PrivateRoute
+                  authEd={this.props.user}
+                  exact
+                  path="/add-profile"
+                  component={AddProfile}
+                />
+                <PrivateRoute
+                  authEd={this.props.user}
+                  exact
+                  path="/skills"
+                  component={Skills}
+                />
+                <PrivateRoute
+                  authEd={this.props.user}
+                  exact
+                  path="/profile"
+                  component={Profile}
+                />
               </Switch>
             </div>
           </div>

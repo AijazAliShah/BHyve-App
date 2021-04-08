@@ -23,7 +23,6 @@ class Login extends Component {
         this.setState({ loading: true, errorMsg: "", successMsg: "" });
         try {
             const signin = await api.signin(data)
-            console.log("signin",signin);
             this.props.userLogin(signin)
 
             if(signin.user.profileCompleted){
@@ -33,7 +32,6 @@ class Login extends Component {
             }
 
         } catch (e) {
-            console.log(e.response);
             if (e.response.data.statusCode === 400) {
                 this.setState({ errorMsg: e.response.data.message[0], loading: false })
             } else if (e.response.data.statusCode === 409) {

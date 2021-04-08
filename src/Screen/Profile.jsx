@@ -17,7 +17,6 @@ class Profile extends Component {
         };
 
         const user = await api.getProfile(config)
-        console.log("user", user);
         this.setState({ user })
 
     }
